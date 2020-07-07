@@ -1,5 +1,10 @@
-const { task } = require('gulp');
+const { task, parallel } = require('gulp');
 
 const css = require('./gulp/tasks/css');
+const js = require('./gulp/tasks/script');
 
-task('buildCss', css.task);
+const buildCssJs = parallel(css.task, js.task);
+
+task('buildCssJs', buildCssJs);
+
+// task('buildCss', css.task);
