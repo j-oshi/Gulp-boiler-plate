@@ -8,7 +8,7 @@ const image = require('gulp-image');
 const changed = require('gulp-changed');
 
 function compressImage() {
-  return src(media.path.media.src + "*")
+  return src(media.path.media.src + "*.+(png|jpg|gif|svg)")
     .pipe(changed(media.path.media.dist))
     .pipe(image())
     .pipe(dest(media.path.media.dist));

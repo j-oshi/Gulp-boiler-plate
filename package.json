@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/j-oshi/j-site#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-jshint": "^2.1.0",
+    "jshint": "^2.11.1"
   },
   "dependencies": {
     "@babel/core": "^7.10.4",
@@ -26,9 +28,12 @@
     "gulp-changed": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
     "gulp-image": "^6.2.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify-es": "^2.0.0"
   }
 }

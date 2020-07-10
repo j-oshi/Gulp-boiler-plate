@@ -13,7 +13,6 @@ let folderPath = {
   js: {
     src: basePath.src + "js/",
     dist: basePath.dist + "js/",
-    tmp: basePath.tmp + "js/"
   },
   media: {
     src: basePath.src + "img/",

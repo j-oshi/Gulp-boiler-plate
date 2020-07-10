@@ -1,0 +1,18 @@
+/* define variables for the primary colors */
+/* use the variables */
+.main-header {
+  background-color: #a2b9bc; }
+
+.menu-left {
+  background-color: #b2ad7f; }
+
+.menu-right {
+  background-color: #878f99; }
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  color: red; }
+
+#container {
+  width: 680px; }
