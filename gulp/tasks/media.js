@@ -1,13 +1,17 @@
 'use strict';
 
-const { src, dest, series } = require('gulp');
+const media = require('../config');
+
+const { src, dest } = require('gulp');
 
 const image = require('gulp-image');
+const changed = require('gulp-changed');
 
 function compressImage() {
-  return src('./app/img/*')
+  return src(media.path.media.src + "*")
+    .pipe(changed(media.path.media.dist))
     .pipe(image())
-    .pipe(dest('./dist/img/'));
+    .pipe(dest(media.path.media.dist));
 }
 
 exports.task = compressImage;

@@ -7,6 +7,7 @@ const img = require('./gulp/tasks/media');
 
 task('buildCss', css.task);
 task('buildJs', js.task);
+task('compressImg', img.task);
 // const buildCssJs = parallel(css.task, js.task, img.task);
 
 // const build = series(cleanFolders.task, buildCssJs)
