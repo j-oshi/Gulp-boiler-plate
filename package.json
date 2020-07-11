@@ -18,6 +18,7 @@
   "homepage": "https://github.com/j-oshi/j-site#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-jshint": "^2.1.0",
     "jshint": "^2.11.1"
   },

@@ -9,6 +9,9 @@
 .menu-right {
   background-color: #878f99; }
 
+a {
+  transition: all 320ms ease; }
+
 body {
   font-family: Helvetica, sans-serif;
   font-size: 18px;
