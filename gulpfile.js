@@ -4,7 +4,7 @@ const cleanFolders = require('./gulp/tasks/cleanFolders');
 const css = require('./gulp/tasks/css');
 const js = require('./gulp/tasks/script');
 const img = require('./gulp/tasks/media');
-
+const processHtml = require('./gulp/tasks/processHtml');
 
 task('cleanCss', cleanFolders.cssTask);
 task('cleanJs', cleanFolders.jsTask);
@@ -14,6 +14,8 @@ task('cleanAll', parallel(cleanFolders.cssTask, cleanFolders.jsTask, cleanFolder
 task('buildCss', css.task);
 task('buildJs', js.task);
 task('compressImg', img.task);
+task('buildAll', series(parallel(cleanFolders.cssTask, cleanFolders.jsTask, cleanFolders.imgTask), parallel(css.task, js.task, img.task)));
+task('processHtml', processHtml.task);
 
 function watchTask(done) {
   const watcher = watch(['app/js/**/*.js', 'app/scss/**/*.scss', 'app/img/"**/*.+(png|jpg|gif|svg)'], series('cleanAll', parallel('buildJs', 'buildCss', 'compressImg')));

@@ -46,7 +46,6 @@ function minifyCss() {
     .pipe(sourcemaps.init())
     .pipe(autoprefixer('last 2 versions'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(rename({extname: ".min.css"}))
     .pipe(rename(function(path) {
       path.dirname = path.dirname.replace('tmp', 'dist');
       path.extname = '.min.css';
