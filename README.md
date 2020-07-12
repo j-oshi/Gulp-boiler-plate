@@ -20,7 +20,7 @@ Put:
 - create an img folder and put image files in app->img.
 
 * Child folders are accepted
-* Files in scss components folder are combined to a single components.css in the destination folder.
+* Files in scss components folder are combined to a components.css in the destination folder.
 ```
 
 ### To process files
