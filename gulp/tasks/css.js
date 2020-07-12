@@ -22,24 +22,37 @@ function concateSCSS() {
     .pipe(sassLint())
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('component.css'))
-    .pipe(dest(css.path.css.tmp));
+    .pipe(dest(css.path.css.tmp + 'components'));
 }
 
 function compileToCss() {
-  return src(paths.libs)
+  return src(paths.libs, { base: '.' })
     .pipe(sassLint())
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest(css.path.css.tmp));
+    .pipe(rename(function(path) {
+      const mapObj = {
+        app:"tmp",
+        scss:"styles"
+      };
+      path.dirname = path.dirname.replace(/app|scss/gi, function(matched){
+        return mapObj[matched];
+      });
+    }))
+    .pipe(dest('.'));
 }
 
 function minifyCss() {
-  return src(css.path.css.tmp + '*.css')
+  return src(css.path.css.tmp + '**/*.css', { base: '.' })
     .pipe(sourcemaps.init())
     .pipe(autoprefixer('last 2 versions'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename({extname: ".min.css"}))
+    .pipe(rename(function(path) {
+      path.dirname = path.dirname.replace('tmp', 'dist');
+      path.extname = '.min.css';
+    }))   
     .pipe(sourcemaps.write('./'))
-    .pipe(dest(css.path.css.dist));
+    .pipe(dest('.'));
 }
 
 exports.task = series(parallel(compileToCss, concateSCSS), minifyCss);

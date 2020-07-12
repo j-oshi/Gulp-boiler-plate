@@ -10,14 +10,17 @@ const uglify = require('gulp-uglify-es').default;
 const rename = require("gulp-rename");
 
 function transpileMinifyToES5() {
-  return src(js.path.js.src + '**/*.js')
+  return src(js.path.js.src + '**/*.js', { base: '.' })
     .pipe(jshint())
     .pipe(babel({
       presets: ['@babel/env']
     }))
     .pipe(uglify())
-    .pipe(rename({ extname: ".min.js" }))
-    .pipe(dest(js.path.js.dist));
+    .pipe(rename(function(path) {
+        path.dirname = path.dirname.replace('app', 'dist');
+        path.extname = '.min.js';
+    }))
+    .pipe(dest('.'));
 }
 
 exports.task = transpileMinifyToES5;
