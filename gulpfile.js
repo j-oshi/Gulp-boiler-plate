@@ -16,81 +16,81 @@ task('buildJs', js.task);
 task('compressImg', img.task);
 
 function watchTask(done) {
-    const watcher = watch(['app/js/**/*.js', 'app/scss/**/*.scss', 'app/img/"**/*.+(png|jpg|gif|svg)'], series('cleanAll', parallel('buildJs', 'buildCss', 'compressImg')));
+  const watcher = watch(['app/js/**/*.js', 'app/scss/**/*.scss', 'app/img/"**/*.+(png|jpg|gif|svg)'], series('cleanAll', parallel('buildJs', 'buildCss', 'compressImg')));
 
-    watcher.on('change', async function(path, stats) {
-      console.log(`File ${path} was changed`);
-    });
+  watcher.on('change', async function (path, stats) {
+    console.log(`File ${path} was changed`);
+  });
 
-    watcher.on('add', async function(path, stats) {
-      console.log(`File ${path} was added`);
-    });
+  watcher.on('add', async function (path, stats) {
+    console.log(`File ${path} was added`);
+  });
 
-    watcher.on('unlink', async function(path, stats) {
-      console.log(`File ${path} was removed`);
-    });
+  watcher.on('unlink', async function (path, stats) {
+    console.log(`File ${path} was removed`);
+  });
 
-    done();
+  done();
 }
 
 exports.watchAll = watchTask;
 
 function watchCssTask(done) {
-    const watcher = watch(['app/scss/**/*.scss'], series('cleanCss', 'buildCss'));
+  const watcher = watch(['app/scss/**/*.scss'], series('cleanCss', 'buildCss'));
 
-    watcher.on('change', async function(path, stats) {
-      console.log(`File ${path} was changed`);
-    });
+  watcher.on('change', async function (path, stats) {
+    console.log(`File ${path} was changed`);
+  });
 
-    watcher.on('add', async function(path, stats) {
-      console.log(`File ${path} was added`);
-    });
+  watcher.on('add', async function (path, stats) {
+    console.log(`File ${path} was added`);
+  });
 
-    watcher.on('unlink', async function(path, stats) {
-      console.log(`File ${path} was removed`);
-    });
+  watcher.on('unlink', async function (path, stats) {
+    console.log(`File ${path} was removed`);
+  });
 
-    done();
+  done();
 }
 
 exports.watchCss = watchCssTask;
 
 function watchJsTask(done) {
-    const watcher = watch('app/js/**/*.js', series('cleanJs', 'buildJs'));
+  const watcher = watch('app/js/**/*.js', series('cleanJs', 'buildJs'));
 
-    watcher.on('change', async function(path, stats) {
-      console.log(`File ${path} was changed`);
-    });
+  watcher.on('change', async function (path, stats) {
+    console.log(`File ${path} was changed`);
+  });
 
-    watcher.on('add', async function(path, stats) {
-      console.log(`File ${path} was added`);
-    });
+  watcher.on('add', async function (path, stats) {
+    console.log(`File ${path} was added`);
+  });
 
-    watcher.on('unlink', async function(path, stats) {
-      console.log(`File ${path} was removed`);
-    });
+  watcher.on('unlink', async function (path, stats) {
+    console.log(`File ${path} was removed`);
+  });
 
-    done();
+  done();
 }
 
 exports.watchJs = watchJsTask;
 
 function watchImgTask(done) {
-    const watcher = watch(['app/img/**/*.+(png|jpg|gif|svg)'], series('cleanImg', 'compressImg'));
+  const watcher = watch(['app/img/**/*.+(png|jpg|gif|svg)'], series('cleanImg', 'compressImg'));
 
-    watcher.on('change', async function(path, stats) {
-      console.log(`File ${path} was changed`);
-    });
+  watcher.on('change', async function (path, stats) {
+    console.log(`File ${path} was changed`);
+  });
 
-    watcher.on('add', async function(path, stats) {
-      console.log(`File ${path} was added`);
-    });
+  watcher.on('add', async function (path, stats) {
+    console.log(`File ${path} was added`);
+  });
 
-    watcher.on('unlink', async function(path, stats) {
-      console.log(`File ${path} was removed`);
-    });
+  watcher.on('unlink', async function (path, stats) {
+    console.log(`File ${path} was removed`);
+  });
 
-    done();
+  done();
 }
 
 exports.watchImg = watchImgTask;
