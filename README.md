@@ -18,6 +18,9 @@ Put:
 - create a js folder and javascript files in app->js
 - create a scss folder and put files in app->scss 
 - create an img folder and put image files in app->img.
+
+* Child folders are accepted
+* Files in scss components folder are combined to a single components.css in the destination folder.
 ```
 
 ### To process files
