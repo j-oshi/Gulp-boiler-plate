@@ -1,6 +1,6 @@
 ﻿# Task builder
 ```
-This codebase is used to set a task builder to:
+Task builder set to:
 - Transpile js from es6 to 5 and compress
 - Compile scss to css
 - Compress images
