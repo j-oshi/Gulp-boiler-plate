@@ -1,4 +1,4 @@
-﻿# Task builder
+﻿# Gulp boilerplate
 ```
 Task builder set to:
 - Transpile js from es6 to 5 and compress
